@@ -2,7 +2,8 @@
 
 	var $element = $("#test" ); 
 
-	$element.css( "border", "2px solid red" ).add( "p" ).css( "background", "yellow" );
-	rotor.rotate($element);	
+	$element.css("border", "2px solid red").add( "p" ).css( "background", "yellow" );
+	
+	rotor.rotate("te#st");	
 
 }));
