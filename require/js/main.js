@@ -1,4 +1,5 @@
-;define('main', ['jquery', 'views/LoginView'], (function ($, login) {
+
+;define('main', ['appframework', 'views/LoginView'], (function ($, login) {
 
 	var init = function (){
 
