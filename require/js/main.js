@@ -1,9 +1,16 @@
-;define('main', ['jquery', 'rotor'], (function ($, rotor) {
+;define('main', ['jquery', 'views/LoginView'], (function ($, login) {
 
-	var $element = $("#test" ); 
+	var init = function (){
 
-	$element.css("border", "2px solid red").add( "p" ).css( "background", "yellow" );
-	
-	rotor.rotate("te#st");	
+		login.init();
+
+	};
+
+	$(document).ready(function(evt){
+
+		login.init();
+
+	});
+	document.addEventListener('deviceready', init);
 
 }));
