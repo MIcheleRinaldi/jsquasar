@@ -7,7 +7,7 @@
 	var initInteraction = function(){
 
 		$username 	= $('#username');
-		$password 	= $('#password');
+		$password 	= $('#pwd');
 		$submit		= $('#submit');
 
 		$submit.click(onSubmit);
@@ -20,6 +20,21 @@
 
 		evt.preventDefault();
 
+		if(!checkField($username, 'where is the username?'))return;
+		if(!checkField($password, 'where is the password?'))return;
+
+	};
+
+	var checkField = function(field, msg){
+
+		if(field.val().length == 0){
+
+			alert(msg);
+			return false;
+
+		}
+
+		return true;
 
 	};
 
