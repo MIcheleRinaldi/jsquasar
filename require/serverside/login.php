@@ -1,10 +1,15 @@
 <?php
 	
+	header("Access-Control-Allow-Origin: *");
+
+	$post = file_get_contents("php://input");
+	$json = json_decode($post);
+
 	// phpinfo();
 		
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
+	$username = $json->username;
+	$password = $json->password;
+
 	$result;
 
 	if($username == 'pippo' && $password == 'pippo'){
