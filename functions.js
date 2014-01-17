@@ -7,3 +7,23 @@
  * 3. Visualizza per inserire il risultato come un commento dopo il testo selezionato. (Cmd-L)
  */
 
+function sayHello(){
+    
+    console.log('hello');
+
+}
+
+sayHello();
+
+function sayHelloWithName(name){
+    
+    console.log('hello ' + name);
+    console.log(arguments);
+
+}
+
+sayHelloWithName('mario');
+
+$('mydiv').click(function(){ /* My code here */ });
+
+
