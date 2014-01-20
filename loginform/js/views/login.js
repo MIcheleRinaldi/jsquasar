@@ -1,6 +1,6 @@
 ;define('views/login', [], (function () {
 	
-	var $username, $password, $submit;
+	var $username, $password, $submit, $errorMessage;
 
 	console.log('module loaded');
 
@@ -9,6 +9,8 @@
 		$username 	= $('#username');
 		$password 	= $('#pwd');
 		$submit		= $('#submit');
+
+		$errorMessage = $('.error');
 
 		$submit.click(onSubmit);
 
@@ -23,18 +25,28 @@
 		if(!checkField($username, 'where is the username?'))return;
 		if(!checkField($password, 'where is the password?'))return;
 
+		// Executed only if the checkField function returns true
+		$errorMessage.css('display', 'none');
+		$errorMessage.parent().css('background-color', 'transparent');
+
 	};
 
 	var checkField = function(field, msg){
 
+		var result = true;
+
 		if(field.val().length == 0){
 
-			$('.error').css('display', 'block');
-			return false;
+			$errorMessage.css('display', 'block').text(msg);
+			field.after($errorMessage);
+
+			$errorMessage.parent().css('background-color', 'red');
+
+			result = false;
 
 		}
 
-		return true;
+		return result;
 
 	};
 
