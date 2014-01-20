@@ -29,7 +29,7 @@
 
 		if(field.val().length == 0){
 
-			alert(msg);
+			$('.error').css('display', 'block');
 			return false;
 
 		}

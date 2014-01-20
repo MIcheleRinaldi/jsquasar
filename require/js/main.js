@@ -10,6 +10,7 @@
 	$(document).ready(function(evt){
 
 		login.init();
+		$.ui.launch();
 
 	});
 	document.addEventListener('deviceready', init);
