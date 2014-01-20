@@ -2,39 +2,90 @@
 <head>
 	<title>Require</title>
 
-	<link rel="stylesheet" type="text/css" href="css/af.ui.base.css">
-	<link rel="stylesheet" type="text/css" href="css/af.ui.css">
-	<link rel="stylesheet" type="text/css" href="css/icons.css">
+	<link rel='stylesheet' type='text/css' href='js/libs/appframework/css/icons.css' />
 
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/main.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/appframework.css'  />
 
-	
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/badges.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/buttons.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/lists.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/forms.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/grid.css'  />
 
-	<script type="text/javascript" 
-			data-main="js/app" src="js/require.js">
-	</script>
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/plugins/css/af.actionsheet.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/plugins/css/af.popup.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/plugins/css/af.selectBox.css'  />
+
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/android.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/win8.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/bb.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/ios7.css'  />
+    <link rel='stylesheet' type='text/css' href='js/libs/appframework/css/src/ios.css'  />
 
 </head>
 <body>
-	<div id="afui">
-		<div id = "content">
-		<div class="panel">
-			<section>
+         <div id='afui' class=''>
 
-				<form id = 'login-form'>
-					
-					<label for = 'username'>Username</label>
-					<input id = 'username' 	type = 'text'>
-					
-					<label for = 'password'>Mote de pass&egrave;</label>
-					<input id = 'password' 	type = 'password'>
-					<input  				type = 'submit'>
-				</form>
-			
-			</section>
-	</div>
-	</div>
-	</div>
+            <!-- this is the splashscreen you see. -->
+            <div id='splashscreen' class='ui-loader heavy'>
+                docebo
+                <br>
+                <br>
+                <span class='ui-icon ui-icon-loading spin'></span>
+                <h1>Loading...</h1>
 
+            </div>
+
+            <div id='header'>
+                <a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
+            </div>
+            <div id='content'>
+
+                <!--
+                <nav id='main-nav'>
+                    <div class='title gray-user-profile'>
+                        User Profile<br>
+                    </div>
+                    <ul>
+                        <li><a id='courses-link'    href='#courses'></a></li>
+                        <li><a id='reports-link'    href='#reports'></a></li>
+                        <li><a id='settings-link'   href='#settings'></a></li>
+                        <li><a id='logout-link'     href='#logout'></a></li>
+                    </ul>
+
+                </nav>
+                -->
+                <div id='main' title='Welcome' class='panel' selected='true'>
+                    <!--
+                        optionals properties for future references
+                        data-load='loadedPanel' data-unload='unloadedPanel' data-tab='navbar_home'>
+                    -->
+
+                       <section>
+
+                            <form id = 'login-form'>
+                                        
+                                <label for = 'username'>Username</label>
+                                <input id = 'username'         type = 'text'>
+                                        
+                                <label for = 'password'>Mote de pass&egrave;</label>
+                                <input id = 'password'         type = 'password'>
+                                <input class = 'button green'  type = 'submit'>
+                            </form>
+
+                            <span id ='error' class = 'errorMessage' ></span>
+
+                        </section>
+                    </div>
+                    
+            </div>
+        </div>
+
+		 <script type='text/javascript' 
+                 data-main='js/app' 
+                 src='js/libs/require/require.js'>
+        </script>
+	
 </body>
 </html>

@@ -4,39 +4,47 @@
 
 	var doLogin = function(username, password){
 
-		if(username.length < 3){
+		if(username.val().length < 3){
 
-			view.showErrorMessage('Insert the username');
+			view.showErrorMessage('Insert the username', username);
 			return;
 
 		}
 
-		if(password.length < 3){
+		if(password.val().length < 3){
 
-			view.showErrorMessage('Insert the password');
+			view.showErrorMessage('Insert the password', password);
 			return;		
 
 		}
 
+		view.clearMessages();
+		view.showLoader('Cargando...');
+
 		$.ajax({
 				  type: 'POST',
 				  url: 'http://localhost/loginservice/login.php',
-				  data: JSON.stringify({'username': username, 'password': password}),
+				  data: JSON.stringify({'username': username.val(), 'password': password.val()}),
 				  success: function(result){
 
-					var data = JSON.parse(result);					
+					var data = JSON.parse(result);	
+
 					if(data.success == true ){
 
 						view.succesfulLogin(true);
 
-					}else{
+					}else if(data.success == false){
 
 						view.succesfulLogin(false);
 
+					}else{
+
+						view.showLoader('', true);
+
 					}
 
-				}
 					}
+				}
 			);	
 
 	};

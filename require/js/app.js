@@ -2,8 +2,8 @@ require.config({
 
  	paths: {
 
-        appframework: 'appframework',
-        appframeworkui: 'ui/appframework.ui'
+        appframework: 'libs/appframework/appframework',
+        appframeworkui: 'libs/appframework/appframework.ui.min'
 
         },
 
@@ -15,7 +15,7 @@ require.config({
 
     	},
 
-    	'appframework.ui':{
+    	'appframeworkui':{
 
     		exports: '$.ui'
 

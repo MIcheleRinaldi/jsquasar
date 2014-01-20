@@ -1,4 +1,4 @@
-;define('views/LoginView', ['appframeworkui', 'controllers/Login'], (function (ui, controller) {
+;define('views/LoginView', ['appframework', 'controllers/Login'], (function ($, controller) {
 	
 	var $errorMessage;
 	var $username, $password, $loginForm;
@@ -8,6 +8,8 @@
 		$username 	= $('#username');
 		$password 	= $('#password');
 		$loginForm 	= $('#login-form');
+
+		$errorMessage = $('.errorMessage');
 
 		$loginForm.bind('submit', onSubmit);
 
@@ -19,34 +21,56 @@
 
 		evt.preventDefault();
 
-		controller.login($username.val(), $password.val());	
+		controller.login($username, $password);	
 
 	};
 
-	var displayMessage = function(msg){
+	var doClearMessages = function(){
+
+		if($errorMessage){
+
+			$errorMessage.text('');
+
+		}
+
+	};
+
+	var displayMessage = function(msg, field){
 
 		if($errorMessage){
 
 			$errorMessage.text(msg);
-
-		}else{
-
-			$loginForm.append('<span id ="error" class = "errorMessage" >' + msg + '</span>');
-			$errorMessage = $('#error');
-
+			$errorMessage.insertAfter(field);
+			
 		}
+
 	};
 
 	var handleSuccesfulLogin = function(status){
 
+		console.log(status);
+
 		if(status){
 
-			ui.popup('we, password errata');
-			//$('body').append('<span>You are logged in</span>').addClass('success');
+			$.ui.popup('we, password corretta');
+			
+		}else{
+
+			$.ui.popup('You are NOT logged in');
+			
+		}
+
+	};
+
+	var doShowLoader = function(msg, destroy){
+
+		if(!destroy){
+
+			$.ui.showMask(msg || 'Loading...');
 
 		}else{
 
-			$('body').append('<span>You are NOT logged in</span>').addClass('failure');
+			$.ui.hideMask();
 
 		}
 
@@ -56,7 +80,9 @@
 
 		init: initInteraction,
 		showErrorMessage: displayMessage,
-		succesfulLogin: handleSuccesfulLogin
+		succesfulLogin: handleSuccesfulLogin,
+		clearMessages: doClearMessages,
+		showLoader: doShowLoader
 
 	};
 

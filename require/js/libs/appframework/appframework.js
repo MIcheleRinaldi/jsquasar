@@ -1451,17 +1451,7 @@ if (!window.af || typeof(af) !== "function") {
             * @title $().data(key,[value]);
             */
             data: function(key, value) {
-                var retData;
-                // setter
-                if (value) {
-                    return this.attr('data-' + key, value);
-                }
-                // getter
-                retData = this.attr('data-' + key);
-                try {
-                    retData = $.parseJSON(retData);
-                } catch(ex) {}
-                return retData;
+                return this.attr('data-' + key, value);
             },
             /**
             * Rolls back the appframework elements when filters were applied
