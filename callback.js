@@ -10,7 +10,7 @@
 var img = document.createElement('img');
 
 img.onload = function(evt){
-    
+    $('body').append(img);
     console.log('success', evt);
     
 };
